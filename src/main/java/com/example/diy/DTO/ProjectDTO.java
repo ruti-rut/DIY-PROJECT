@@ -14,13 +14,8 @@ public class ProjectDTO {
     private CategoryDTO category;
 
     private List<Step> steps;
-
-
     private List<Comment> comments;
-
     private List<Tag> tags;
-
-
     private int likesCount;         // optional
 
     private LocalDate createdAt;
