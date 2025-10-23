@@ -7,7 +7,6 @@ public class Step {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
-
     private int stepNumber;
     private String picture;
     @Lob

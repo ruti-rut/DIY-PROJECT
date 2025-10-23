@@ -10,6 +10,7 @@ public class Users {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     private Long id;
+    private String password;
     private String userName;
     private String mail;
     @JsonIgnore
