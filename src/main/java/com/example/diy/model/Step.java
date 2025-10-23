@@ -8,7 +8,7 @@ public class Step {
     @Id
     private Long id;
     private int stepNumber;
-    private String picture;
+    private String picturePath;
     @Lob
     private String content;
     private String title;
@@ -40,11 +40,11 @@ public class Step {
     }
 
     public String getPicture() {
-        return picture;
+        return picturePath;
     }
 
     public void setPicture(String picture) {
-        this.picture = picture;
+        this.picturePath = picture;
     }
 
     public String getContent() {

@@ -17,7 +17,7 @@ public class Users {
     @OneToMany(mappedBy = "users")
     private List<Project> myProjects;
 
-    private String profilePicture;
+    private String profilePicturePath;
     @JsonIgnore
     @OneToMany(mappedBy = "users")
     private List<Comment> myComments;
@@ -95,11 +95,11 @@ public class Users {
     }
 
     public String getProfilePicture() {
-        return profilePicture;
+        return profilePicturePath;
     }
 
     public void setProfilePicture(String profilePicture) {
-        this.profilePicture = profilePicture;
+        this.profilePicturePath = profilePicture;
     }
 
     public List<Comment> getMyComments() {

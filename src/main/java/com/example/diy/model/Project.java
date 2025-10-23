@@ -45,7 +45,7 @@ public class Project {
     private String title;
     private String ages;
     private String timePrep;
-    private String picture;
+    private String picturePath;
     private String description;
     private boolean isDraft;
 
@@ -66,11 +66,11 @@ public class Project {
     }
 
     public String getPicture() {
-        return picture;
+        return picturePath;
     }
 
     public void setPicture(String picture) {
-        this.picture = picture;
+        this.picturePath = picture;
     }
 
     public Long getId() {

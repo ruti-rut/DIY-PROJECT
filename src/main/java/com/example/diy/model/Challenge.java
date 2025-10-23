@@ -16,14 +16,14 @@ public class Challenge {
     private String content;
     @OneToMany(mappedBy = "challenge")
     private List<Project> projects;
-    private String picture;
+    private String picturePath;
 
     public String getPicture() {
-        return picture;
+        return picturePath;
     }
 
     public void setPicture(String picture) {
-        this.picture = picture;
+        this.picturePath = picture;
     }
 
     public Long getId() {
