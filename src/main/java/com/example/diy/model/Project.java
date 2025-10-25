@@ -89,6 +89,9 @@ public class Project {
         this.users = users;
     }
 
+    public String getPicturePath() {
+        return picturePath;
+    }
 
     public List<Users> getFavoritedByUsers() {
         return favoritedByUsers;
