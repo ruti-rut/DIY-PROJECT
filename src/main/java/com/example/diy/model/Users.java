@@ -94,11 +94,11 @@ public class Users {
         this.myProjects = myProjects;
     }
 
-    public String getProfilePicture() {
+    public String getProfilePicturePath() {
         return profilePicturePath;
     }
 
-    public void setProfilePicture(String profilePicture) {
+    public void setProfilePicturePath(String profilePicture) {
         this.profilePicturePath = profilePicture;
     }
 
