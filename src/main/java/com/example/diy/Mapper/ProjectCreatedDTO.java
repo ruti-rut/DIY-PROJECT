@@ -3,20 +3,20 @@ package com.example.diy.Mapper;
 import com.example.diy.DTO.ProjectCreateDTO;
 import com.example.diy.model.Project;
 import com.example.diy.Mapper.CategoryMapper;
-
 public interface ProjectCreatedDTO {
-    default ProjectCreatedDTO ProjectCreatedToDTO(Project project){
-        ProjectCreateDTO projectCreatedDTO=new ProjectCreateDTO();
-        projectCreatedDTO.setCategory(categorytoDTO(project.getCategory()));
-        projectCreatedDTO.setChallenge(project.getChallenge());
-        projectCreatedDTO.setSteps(project.getSteps());
-        projectCreatedDTO.setTags(project.getTags());
-        projectCreatedDTO.setMaterials(project.getMaterials());
-        projectCreatedDTO.setTitle(project.getTitle());
-        projectCreatedDTO.setAges(project.getAges());
-        projectCreatedDTO.setTimePrep(project.getTimePrep());
-        projectCreatedDTO.setPicture(project.getPicture());
-        projectCreatedDTO.setDescription(project.getDescription());
-        projectCreatedDTO.setDraft(project.isDraft());
+    default ProjectCreateDTO ProjectCreateToDTO(Project project, CategoryMapper cm){
+        ProjectCreateDTO projectCreateDTO=new ProjectCreateDTO();
+        projectCreateDTO.setCategory(cm.categoryToDTO(project.getCategory()));
+        projectCreateDTO.setChallenge(project.getChallenge());
+        projectCreateDTO.setSteps(project.getSteps());
+        projectCreateDTO.setTags(project.getTags());
+        projectCreateDTO.setMaterials(project.getMaterials());
+        projectCreateDTO.setTitle(project.getTitle());
+        projectCreateDTO.setAges(project.getAges());
+        projectCreateDTO.setTimePrep(project.getTimePrep());
+        projectCreateDTO.setPicture(project.getPicture());
+        projectCreateDTO.setDescription(project.getDescription());
+        projectCreateDTO.setDraft(project.isDraft());
+        return projectCreateDTO;
     }
 }
