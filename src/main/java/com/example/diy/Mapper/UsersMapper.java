@@ -43,13 +43,13 @@ public interface UsersMapper {
 //        return usersSimpleDTO;
 //    }
 
-    default Users toEntityFromSimpleDTO(UsersSimpleDTO dto) {
-        Users users = new Users();
-        users.setId(dto.getId());
-        users.setUserName(dto.getUserName());
-        users.setProfilePicturePath(dto.getProfilePicturePath());
-        return users;
-    }
+//    default Users toEntityFromSimpleDTO(UsersSimpleDTO dto) {
+//        Users users = new Users();
+//        users.setId(dto.getId());
+//        users.setUserName(dto.getUserName());
+//        users.setProfilePicturePath(dto.getProfilePicturePath());
+//        return users;
+//    }
 
 
 }
