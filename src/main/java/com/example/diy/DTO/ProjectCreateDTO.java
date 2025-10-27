@@ -16,8 +16,17 @@ public class ProjectCreateDTO {
     private String ages;
     private String timePrep;
     private String picture;
+    private String picturePath;
     private String description;
     private boolean isDraft;
+
+    public String getPicturePath() {
+        return picturePath;
+    }
+
+    public void setPicturePath(String picturePath) {
+        this.picturePath = picturePath;
+    }
 
     public CategoryDTO getCategory() {
         return category;

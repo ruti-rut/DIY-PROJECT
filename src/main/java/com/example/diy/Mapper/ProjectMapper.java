@@ -16,6 +16,8 @@ public interface ProjectMapper {
     @Mapping(source = "category", target = "category")
     ProjectDTO projectToDTO(Project project);
 
+    ProjectCreateDTO ProjectCToDTO(Project project);
+
     default ProjectCreateDTO ProjectCreateToDTO(Project project, CategoryMapper cm) {
         ProjectCreateDTO projectCreateDTO = new ProjectCreateDTO();
         projectCreateDTO.setCategory(cm.categoryToDTO(project.getCategory()));
