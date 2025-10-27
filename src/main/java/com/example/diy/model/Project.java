@@ -65,11 +65,11 @@ public class Project {
         this.description = description;
     }
 
-    public String getPicture() {
+    public String getPicturePath() {
         return picturePath;
     }
 
-    public void setPicture(String picture) {
+    public void setPicturePath(String picture) {
         this.picturePath = picture;
     }
 
@@ -89,9 +89,7 @@ public class Project {
         this.users = users;
     }
 
-    public String getPicturePath() {
-        return picturePath;
-    }
+
 
     public List<Users> getFavoritedByUsers() {
         return favoritedByUsers;

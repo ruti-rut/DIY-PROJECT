@@ -2,16 +2,13 @@ package com.example.diy.Mapper;
 
 import com.example.diy.DTO.UsersSimpleDTO;
 import com.example.diy.model.Users;
+import com.example.diy.service.ImageUtils;
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Base64;
 
 @Mapper(componentModel = "spring")
 public interface UsersMapper {
@@ -21,10 +18,10 @@ public interface UsersMapper {
 
     @AfterMapping
     default void handleProfilePicture(@MappingTarget UsersSimpleDTO dto, Users user) throws IOException {
-        Path path = Paths.get(user.getProfilePicturePath());
-        byte[] bytes = Files.readAllBytes(path);
-        dto.setProfilePicture(Base64.getEncoder().encodeToString(bytes));
-    }
+        if (user.getProfilePicturePath() != null) {
+            String imageBase64 = ImageUtils.getImage(user.getProfilePicturePath());
+            dto.setProfilePicture(imageBase64);
+        }
 
 
 //    default UsersSimpleDTO toSimpleDTO(Users user) throws IOException {
@@ -50,6 +47,6 @@ public interface UsersMapper {
 //        users.setProfilePicturePath(dto.getProfilePicturePath());
 //        return users;
 //    }
+    }
 
-
-}
+    }
