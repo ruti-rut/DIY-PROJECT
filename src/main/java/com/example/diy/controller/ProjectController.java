@@ -41,13 +41,11 @@ public class ProjectController {
             , @RequestPart("project") ProjectCreateDTO p) {
         try {
             ImageUtils.uploadImage(file);
-            Project project = projectMapper.toEntity(projectDTO);
+            Project project = projectMapper.projectCreateDTOToEntity(p);
             project.setPicturePath(file.getOriginalFilename());
 
             // שמירה
             Project saved = projectRepository.save(project);
-            p.setPicturePath(file.getOriginalFilename());//נשמור למתכון את הנתיב של התמונה שלו
-            Project project = projectRepository.save(p);
             return new ResponseEntity<>(project, HttpStatus.CREATED);
 
         } catch (IOException e) {
