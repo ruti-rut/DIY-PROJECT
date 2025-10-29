@@ -15,18 +15,19 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 
 @RestController
-@RequestMapping("/api/recipes")
+@RequestMapping("/api/project")
 @CrossOrigin
 public class ProjectController {
-    private static String UPLOAD_DIRECTORY = System.getProperty("user.dir") + "\\images\\";
     ProjectRepository projectRepository;
     ProjectMapper projectMapper;
 
-    @Autowired //באופן אוטומטי יצור מחלקה שמממשת את הממשק בצורה מתאימה ויכניס מופע שלה
+
+    @Autowired
     public ProjectController(ProjectRepository projectRepository, ProjectMapper projectMapper) {
         this.projectRepository = projectRepository;
         this.projectMapper = projectMapper;
     }
+
 
     @GetMapping("/getProject/{id}")
     public ResponseEntity<ProjectDTO> get(@PathVariable long id) throws IOException {
@@ -37,16 +38,17 @@ public class ProjectController {
     }
 
     @PostMapping("/uploadProject")
-    public ResponseEntity<Project> uploadRecipeWithImage(@RequestPart("image") MultipartFile file
+    public ResponseEntity<Project> uploadProjectWithImage(@RequestPart("image") MultipartFile file
             , @RequestPart("project") ProjectCreateDTO p) {
         try {
             ImageUtils.uploadImage(file);
             Project project = projectMapper.projectCreateDTOToEntity(p);
+
             project.setPicturePath(file.getOriginalFilename());
 
-            // שמירה
-            Project saved = projectRepository.save(project);
-            return new ResponseEntity<>(project, HttpStatus.CREATED);
+            Project savedProject = projectRepository.save(project);
+
+            return new ResponseEntity<>(savedProject, HttpStatus.CREATED);
 
         } catch (IOException e) {
             System.out.println(e);
@@ -57,3 +59,14 @@ public class ProjectController {
 
 
 }
+
+
+
+
+
+
+
+
+
+
+

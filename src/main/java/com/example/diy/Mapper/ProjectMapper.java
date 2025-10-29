@@ -31,11 +31,18 @@ public interface ProjectMapper {
     ProjectCreateDTO projectCreateToDTO(Project project);
 
     @AfterMapping
-    default void handleProfilePicture(@MappingTarget ProjectCreateDTO dto, Project project) throws IOException {
+    default void handleProfilePicture(@MappingTarget ProjectCreateDTO dto, Project project) {
         if (project.getPicturePath() != null) {
-            String imageBase64 = ImageUtils.getImage(project.getPicturePath());
-            dto.setPicture(imageBase64);
+            try {
+                // כאן מטפלים ב־IOException במקום לזרוק אותו
+                String imageBase64 = ImageUtils.getImage(project.getPicturePath());
+                dto.setPicture(imageBase64);
+            } catch (IOException e) {
+                e.printStackTrace(); // או טיפול מותאם אחר
+                dto.setPicture(null); // במקרה של שגיאה
+            }
         }
+    }
 
 
 //    default ProjectCreateDTO ProjectCreateToDTO(Project project, CategoryMapper cm) {
@@ -54,4 +61,3 @@ public interface ProjectMapper {
 //        return projectCreateDTO;
 //    }
     }
-}

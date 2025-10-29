@@ -24,5 +24,4 @@ public class ImageUtils {
         //כדי להפחית את תעבורת הרשת, נקודד למחרוזת של base64 שהיא קטנה יותר
         return Base64.getEncoder().encodeToString(byteImage);
     }
-
 }

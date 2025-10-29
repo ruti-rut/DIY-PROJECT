@@ -9,7 +9,7 @@ import java.util.List;
 public class ProjectCreateDTO {
     private CategoryDTO category;
     private Challenge challenge;
-    private List<Step> steps;
+    private List<StepDTO> steps;
     private List<Tag> tags;
     private String materials;
     private String title;
@@ -19,6 +19,15 @@ public class ProjectCreateDTO {
     private String picturePath;
     private String description;
     private boolean isDraft;
+    private long usersID;
+
+    public long getUsersID() {
+        return usersID;
+    }
+
+    public void setUsersID(long usersID) {
+        this.usersID = usersID;
+    }
 
     public String getPicturePath() {
         return picturePath;
@@ -44,11 +53,11 @@ public class ProjectCreateDTO {
         this.challenge = challenge;
     }
 
-    public List<Step> getSteps() {
+    public List<StepDTO> getSteps() {
         return steps;
     }
 
-    public void setSteps(List<Step> steps) {
+    public void setSteps(List<StepDTO> steps) {
         this.steps = steps;
     }
 

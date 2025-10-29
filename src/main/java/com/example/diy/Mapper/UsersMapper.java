@@ -17,12 +17,19 @@ public interface UsersMapper {
     UsersSimpleDTO toSimpleDTO(Users user);
 
     @AfterMapping
-    default void handleProfilePicture(@MappingTarget UsersSimpleDTO dto, Users user) throws IOException {
+    default void handleProfilePicture(@MappingTarget UsersSimpleDTO dto, Users user) {
         if (user.getProfilePicturePath() != null) {
-            String imageBase64 = ImageUtils.getImage(user.getProfilePicturePath());
-            dto.setProfilePicture(imageBase64);
+            try {
+                String imageBase64 = ImageUtils.getImage(user.getProfilePicturePath());
+                dto.setProfilePicture(imageBase64);
+            } catch (IOException e) {
+                e.printStackTrace(); // או טיפול מותאם אחר
+                dto.setProfilePicture(null); // במקרה של שגיאה
+            }
         }
+    }
 
+    }
 
 //    default UsersSimpleDTO toSimpleDTO(Users user) throws IOException {
 //        if (user == null) return null;
@@ -47,6 +54,6 @@ public interface UsersMapper {
 //        users.setProfilePicturePath(dto.getProfilePicturePath());
 //        return users;
 //    }
-    }
 
-    }
+
+

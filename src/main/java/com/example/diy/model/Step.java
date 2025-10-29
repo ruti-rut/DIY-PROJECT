@@ -39,11 +39,11 @@ public class Step {
         this.stepNumber = stepNumber;
     }
 
-    public String getPicture() {
+    public String getPicturePath() {
         return picturePath;
     }
 
-    public void setPicture(String picture) {
+    public void setPicturePath(String picture) {
         this.picturePath = picture;
     }
 

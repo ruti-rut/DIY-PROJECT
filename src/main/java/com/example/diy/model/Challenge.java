@@ -18,11 +18,11 @@ public class Challenge {
     private List<Project> projects;
     private String picturePath;
 
-    public String getPicture() {
+    public String getPicturePath() {
         return picturePath;
     }
 
-    public void setPicture(String picture) {
+    public void setPicturePath(String picture) {
         this.picturePath = picture;
     }
 
