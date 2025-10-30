@@ -9,7 +9,6 @@ import java.util.List;
 public class ProjectCreateDTO {
     private CategoryDTO category;
     private Challenge challenge;
-    private List<StepDTO> steps;
     private List<Tag> tags;
     private String materials;
     private String title;
@@ -53,13 +52,6 @@ public class ProjectCreateDTO {
         this.challenge = challenge;
     }
 
-    public List<StepDTO> getSteps() {
-        return steps;
-    }
-
-    public void setSteps(List<StepDTO> steps) {
-        this.steps = steps;
-    }
 
     public List<Tag> getTags() {
         return tags;
