@@ -11,6 +11,7 @@ import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 
 import java.io.IOException;
+import java.util.List;
 
 @Mapper(componentModel = "spring", uses = {UsersMapper.class, CategoryMapper.class})
 public interface ProjectMapper {
@@ -25,6 +26,11 @@ public interface ProjectMapper {
     @Mapping(target = "users", ignore = true)
     @Mapping(target = "picturePath", source = "picturePath")
     Project projectCreateDTOToEntity (ProjectCreateDTO dto);
+
+    @Mapping(source = "users", target = "usersSimpleDTO")
+    ProjectListDTO toProjectListDTO(Project project);
+
+    List<ProjectListDTO> toProjectListDTOList(List<Project> projects);
 
 
     @Mapping(target = "picture", ignore = true)

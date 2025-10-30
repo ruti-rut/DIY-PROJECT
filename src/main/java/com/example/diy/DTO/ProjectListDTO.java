@@ -5,6 +5,15 @@ public class ProjectListDTO {
     private UsersSimpleDTO usersSimpleDTO;
     private String title;
     private String picture;
+    private String picturePath;
+
+    public String getPicturePath() {
+        return picturePath;
+    }
+
+    public void setPicturePath(String picturePath) {
+        this.picturePath = picturePath;
+    }
 
     public Long getId() {
         return id;
